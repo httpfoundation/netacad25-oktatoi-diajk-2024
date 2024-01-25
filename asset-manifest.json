@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.42809f57.css",
+    "main.js": "/static/js/main.9ee1dbf6.js",
+    "static/media/map.png": "/static/media/map.282b91f32dd7c607fc2d.png",
+    "static/media/CiscoSansTTLight.ttf": "/static/media/CiscoSansTTLight.ce4dcedf35112552301d.ttf",
+    "static/media/welcome-img.png": "/static/media/welcome-img.eff6d85849c5368d7853.png",
+    "static/media/CiscoSansTTBold.ttf": "/static/media/CiscoSansTTBold.10ade40df398d7a1dc9c.ttf",
+    "static/media/CiscoSansThin.otf": "/static/media/CiscoSansThin.07b459052a50f88a87a2.otf",
+    "static/media/CiscoSansRegular.otf": "/static/media/CiscoSansRegular.4fee69bdc6e4209a0b97.otf",
+    "static/media/Cisco-Networking-Academy-Logo-WH.png": "/static/media/Cisco-Networking-Academy-Logo-WH.c45b53b35143f7b08e9d.png",
+    "static/media/felgomb.png": "/static/media/felgomb.f0ef7b13068d20843208.png",
+    "static/media/negyedgomb.png": "/static/media/negyedgomb.21e829e02f3d780dcf2b.png",
+    "static/media/aliz.png": "/static/media/aliz.0f37e27e7eff98a948c5.png",
+    "static/media/netacad2.png": "/static/media/netacad2.ddb48cec1704a4c173bd.png",
+    "static/media/Telekom.png": "/static/media/Telekom.d9c3e28cb74a9266220f.png",
+    "static/media/pannon-mik2.png": "/static/media/pannon-mik2.3544fe72a4bcfee7df2e.png",
+    "index.html": "/index.html",
+    "main.42809f57.css.map": "/static/css/main.42809f57.css.map",
+    "main.9ee1dbf6.js.map": "/static/js/main.9ee1dbf6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42809f57.css",
+    "static/js/main.9ee1dbf6.js"
+  ]
+}

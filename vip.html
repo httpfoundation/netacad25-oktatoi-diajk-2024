@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IOK VIP</title>
+	<script crossorigin src="https://unpkg.com/datocms-client@3.5.14/dist/client.js"></script>
+	<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+		table tr td {
+			padding: 2px 5px;
+			border: 1px solid #ccc;
+		}
+		table thead {
+			font-weight: bold;
+		}
+		#token {
+			margin-bottom: 30px;
+		}
+		a {
+			color: #2196f3;
+		}
+		table input {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<label for="token">Token:</label>
+	<input type="text" id="token" value="" style="width: 300px;" />
+	
+	<br />
+	<button onclick="exportRegistrations()" style="padding: 10px">Regisztrációk exportálása</button>
+	<br />
+	<br />
+	<br />
+	Vip kódok importálása:
+	<input type="file" id="file" />
+	<button onclick="importFile()">Importálás</button>
+	<br />
+	<br />
+	<button onclick="loadCodes()">Lista betöltés</button>
+	<table>
+		<thead>
+			<tr>
+				<td>Kód</td>
+				<td>Név</td>
+				<td>Email</td>
+				<td>Link</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody id="codes">
+
+		</tbody>
+	</table>
+
+	<button onclick="exportCsv()">Exportálás</button>
+	<script>
+		if (window.localStorage.vip_token) {
+			document.getElementById('token').value = window.localStorage.vip_token;
+		}
+		let token = document.getElementById('token').value
+		let client
+		
+		const initClient = () => {
+			token = document.getElementById('token').value
+			if (token) window.localStorage.vip_token = token
+			client = new Dato.SiteClient(token)
+		}
+		let data = []
+
+		const deleteCode = async (id) => {
+			initClient()
+			if (!confirm('Törlés?')) return
+			await client.item.destroy(id)
+			loadCodes()
+		}
+
+		const createCode = async () => {
+			initClient()
+			const name = document.getElementById('name').value
+			const email = document.getElementById('email').value
+			const item = {
+				itemType: '94460',
+				name: name,
+				email: email,
+			}
+			if (!name || !email) return
+			try {
+				await client.item.create(item)
+				loadCodes()
+			} catch (e) {
+				alert("Hiba történt!")
+				console.log(e)
+			}
+		}
+
+		const loadCodes = async () => {
+			initClient()
+			const codes = await client.items.all({
+				filter: {
+					type: 'vipcode'
+				},
+				order_by: 'id_ASC'
+			}, {
+					allPages: true
+				}
+			)
+			console.log(codes)
+			data = codes
+			let table = codes.map(code => `
+				<tr>
+					<td>${code.id}</td>
+					<td>${code.name}</td>
+					<td>${code.email}</td>
+					<td>
+						<a target="_blank" href="https://iok2023.http-alapitvany.hu/?q=${code.id}">
+							https://iok2023.http-alapitvany.hu/?q=${code.id}
+						</a>
+					</td>
+					<td>
+						<button onclick="deleteCode('${code.id}')">Törlés</button>
+					</td>
+				</tr>
+			`).reduce((acc, cur) => acc + cur, '')
+			table += `
+				<tr>
+					<td style="text-align: center;"><i>Új</i></td>
+					<td><input id="name" placeholder="Név" /></td>
+					<td><input id="email" placeholder="Email"  /></td>
+					<td colspan="2">
+						<button onclick="createCode()">Mentés</button>
+					</td>
+				</tr>
+			`
+			document.getElementById('codes').innerHTML = table
+		}
+
+		const importFile = () => {
+			initClient()
+			if (!confirm('Importálás?')) return
+			const file = document.getElementById('file').files[0]
+			if (!file) return
+			
+			const reader = new FileReader()
+			reader.onload = async (e) => {
+				const data = e.target.result
+				if (data.indexOf(";") === -1) {
+					alert("Pontosvesszővel tagolt CSV kell")
+					return
+				}
+				const lines = data.split('\n').map(line => line.replace(/\r/g, ''))
+				console.log(lines)
+				const promises = []
+				let done = 0
+				for (let i = 0; i < lines.length; i++) {
+					const line = lines[i]
+					const parts = line.split(';')
+					if (parts.length < 2) continue
+					const name = parts[0]
+					const email = parts[1]
+					if (i == 0 && (name.toLowerCase() == "name" || name.toLowerCase() == "név")) continue
+					if (i == 0 && (email.toLowerCase() == "email")) continue
+					const item = {
+						itemType: '94460',
+						name: name,
+						email: email,
+					}
+					console.log("Create", item)
+					try {
+						await client.item.create(item)
+						done++
+					} catch (e) {
+						alert(name + ": hiba történt!")
+						console.log(e)
+					}
+				}
+				loadCodes()
+				alert(done + " db kód importálva")
+				document.getElementById('file').value = ''
+			}
+			reader.readAsText(file)
+		}
+
+		const exportCsv = () => {
+			let csv = "Kód;Név;Email;Link\n"
+			data.forEach(code => {
+				csv += `${code.id};${code.name};${code.email};https://iok2023.http-alapitvany.hu/?q=${code.id}\n`
+			})
+			const blob = new Blob(["\uFEFF"+csv], { type: 'text/csv;charset=utf-8;' })
+			const url = URL.createObjectURL(blob)
+			const a = document.createElement('a')
+			a.href = url
+			a.download = 'IOK2023-VIP-Kodok.csv'
+			document.body.appendChild(a)
+			a.click()
+			document.body.removeChild(a)
+		}
+
+		const exportRegistrations = async () => {
+			initClient()
+			const registrations = await client.items.all({
+				filter: {
+					type: 'registration'
+				},
+				order_by: 'id_ASC'
+			}, {
+					allPages: true
+				}
+			)
+			console.log(registrations)
+			let wb = XLSX.utils.book_new()
+			wb.Props = {
+                Title: "SheetJS Tutorial",
+                CreatedDate: new Date()
+        	}
+			wb.SheetNames.push("Regisztrációk")
+			var ws_data = [
+				["ID", "Név", "Email", "Település", "Telefon", "Munkahely", "Hírlevél", "Onsite", "Du.", "Vip", "Dátum"],
+				...(registrations.map(r => [r.id, r.name, r.email, r.city, r.phone, r.workplace, r.newsletter, r.onsite, r.stage, r.vipCode ?? false, new Date(r.createdAt)]))
+			]
+			console.log(ws_data)
+			var ws = XLSX.utils.aoa_to_sheet(ws_data);
+			wb.Sheets["Regisztrációk"] = ws;
+			var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+
+			const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' })
+			const url = URL.createObjectURL(blob)
+			const a = document.createElement('a')
+			a.href = url
+			a.download = 'IOK2023-Regisztraciok.xlsx'
+			document.body.appendChild(a)
+			a.click()
+			document.body.removeChild(a)
+		}
+
+		function s2ab(s) { 
+			var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+			var view = new Uint8Array(buf);  //create uint8array as viewer
+			for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+			return buf;    
+		}
+
+		//if (token) loadCodes()
+	</script>
+</body>
+</html>
