@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.423603db.css",
-    "main.js": "/static/js/main.63d0e7f9.js",
+    "main.css": "/static/css/main.31c59cd6.css",
+    "main.js": "/static/js/main.e8510862.js",
     "static/media/map.png": "/static/media/map.282b91f32dd7c607fc2d.png",
     "static/media/CiscoSansTTLight.ttf": "/static/media/CiscoSansTTLight.ce4dcedf35112552301d.ttf",
     "static/media/welcome-img.png": "/static/media/welcome-img.eff6d85849c5368d7853.png",
@@ -16,11 +16,11 @@
     "static/media/Telekom.png": "/static/media/Telekom.d9c3e28cb74a9266220f.png",
     "static/media/pannon-mik2.png": "/static/media/pannon-mik2.3544fe72a4bcfee7df2e.png",
     "index.html": "/index.html",
-    "main.423603db.css.map": "/static/css/main.423603db.css.map",
-    "main.63d0e7f9.js.map": "/static/js/main.63d0e7f9.js.map"
+    "main.31c59cd6.css.map": "/static/css/main.31c59cd6.css.map",
+    "main.e8510862.js.map": "/static/js/main.e8510862.js.map"
   },
   "entrypoints": [
-    "static/css/main.423603db.css",
-    "static/js/main.63d0e7f9.js"
+    "static/css/main.31c59cd6.css",
+    "static/js/main.e8510862.js"
   ]
 }
