@@ -1,14 +1,15 @@
 @import '../../theme.scss';
-#regisztracio {
+#jeloles {
+	background-color: $iok-lightblue;
 	h2.title {
-		color: $primary;
+		color: $dark;
 	}
 	.text {
-		color: $primary;
+		color: $dark;
 	}
 	h3 {
 		text-align: center;
-		color: $primary;
+		color: $dark;
 	}
 	p.subtitle{
 		margin-bottom: 0;
@@ -21,12 +22,12 @@
 		}
 	}
 	.form-label, .form-check-label {
-		color: $primary;
+		color: $dark;
 		font-size: 0.90rem;
 		font-weight: 600;		
 	}
 	p {
-		color: $primary;
+		color: $dark;
 		font-size: 0.90rem;
 	}
 	.form-check-input:checked {
@@ -59,7 +60,7 @@
 }
 
 .modal {
-	color: $primary;
+	color: $dark;
 	.modal-title.h4 {
 		font-size: 1.2rem;
 		font-weight: 600;

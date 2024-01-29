@@ -1,7 +1,7 @@
 import Section from "../../components/Section/Section"
 import Text from "../../components/Text/Text"
 import Title from "../../components/Title/Title"
-import './Sponsors.scss'
+import './NetacadPrizes.scss'
 import telekomLogo from "../../assets/img/sponsors/Telekom.png"
 import alizLogo from "../../assets/img/sponsors/aliz.png"
 import microsoftLogo from "../../assets/img/sponsors/ms-logo_HU.png"
@@ -24,11 +24,11 @@ const Sponsor = (props) => {
 	)
 }
 
-const Sponsors = () => {
+const NetacadPrizes = () => {
 	const [sponsorText] = useStaticElement("sponsor") 
 	const sponsorCategories = useSponsorCategories()
 
-	return <Section container placeholder id="tamogatok">
+	return <Section container placeholder id="netacad-oktatasert-dijak">
 		<Title><span className="highlight secondary">NETACAD Oktatásért díjak</span></Title>
 		<Text subtitle>
 			<Text description><StructuredText data={sponsorText}></StructuredText></Text>
@@ -58,4 +58,4 @@ const Sponsors = () => {
 	</Section>
 }
 
-export default Sponsors
+export default NetacadPrizes

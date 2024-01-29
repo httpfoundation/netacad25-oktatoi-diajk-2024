@@ -7,7 +7,7 @@ import Web from '../icons/Web'
 import Text from "../components/Text/Text"
 
 const Footer = () => {
-	return <footer>
+	return <footer id="kapcsolat">
 		<div className="container">
 			<div className='links'>
 				<div className='title'>Kapcsolat</div>

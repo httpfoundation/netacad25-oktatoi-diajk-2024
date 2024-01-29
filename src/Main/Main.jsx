@@ -1,26 +1,21 @@
 import Info from '../sections/Info/Info'
-import Map from '../sections/Map/Map'
-import Overlay from '../sections/Overlay/Overlay'
-import Presenters from '../sections/Presenters/Presenters'
-import Registration from '../sections/Registration/Registration'
-import Schedule from '../sections/Schedule/Schedule.jsx'
-import Sponsors from '../sections/Sponsors/Sponsors'
+import ApplicationInfo from '../sections/ApplicationInfo/ApplicationInfo'
+import PrizeOwners from '../sections/PrizeOwners/PrizeOwners'
+import Nomination from '../sections/Nomination/Nomination'
+import NetacadPrizes from '../sections/NetacadPrizes/NetacadPrizes'
 import Welcome from '../sections/Welcome/Welcome'
-import RegistrationFeedback from '../components/RegistrationFeedback'
 import './Main.scss'
+
 
 const Main = () => {
 	return (
 		<main>
 			<Welcome />
-			{/* <Overlay /> */}
-			<RegistrationFeedback />
 			<Info />
-			<Presenters />
-			<Schedule />
-			<Map />
-			<Sponsors />
-			<Registration />
+			<ApplicationInfo />
+			<NetacadPrizes />
+			<PrizeOwners />
+			<Nomination />
 		</main>
 	)
 }

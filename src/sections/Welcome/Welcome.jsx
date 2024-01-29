@@ -83,9 +83,10 @@ const Welcome = () => {
                             />
                         </Fade>
                     </div>
- */}                    <Fade top delay={300}>
+ */}                    
+                    {/* <Fade top delay={300}>
                         <Overview date={target} />
-                    </Fade>
+                    </Fade> */}
                     <Fade left delay={350}>
                         <img
                             src={WelcomeImageMobile}
@@ -95,9 +96,9 @@ const Welcome = () => {
                     </Fade>
                     <Fade top delay={400}>
                         <>
-                            <div className="title title1">25 éves</div>
-                            <div className="title title2">a Cisco Hálózati Akadémia Magyarországon</div>
-                            <div className="title title3">2023</div>
+                            <div className="title title1"></div>
+                            <div className="title title2">NetAcad Oktatásért díjak</div>
+                            <div className="title title3">2024</div>
                         </>
                     </Fade>
 {/*                     <Fade top delay={440}>
@@ -110,9 +111,9 @@ const Welcome = () => {
                             </Button>
                         </Fade> */}
                         <Fade top delay={530}>
-                            <Button href="#regisztracio" bold>
+                            <Button href="#jeloles" bold>
                                 <Ticket />
-                                Regisztráció
+                                Jelölés
                             </Button>
                         </Fade>
                     </div>

@@ -13,9 +13,11 @@ import { useStaticElement } from '../../tools/datoCmsTools'
 const Info = () => {
 	const [infoText1] = useStaticElement("info1") 
 	const [infoText2] = useStaticElement("info2") 
+	const [info1Title] = useStaticElement("info1Title", false) 
+	const [info1Subtitle] = useStaticElement("info1Subtitle", false) 
 	
-	return <Section container placeholder id="info-section" info>
-		<Title left={true}> <span className="highlight">Ünnepeljünk EGYÜTT!</span></Title>
+	return <Section container placeholder id="informaciok" info>
+		<Title left={true}> <span className="highlight">{info1Title}</span></Title>
 		<Text><StructuredText data={infoText1}/></Text>
 
 		<div className='row'>
@@ -28,7 +30,7 @@ const Info = () => {
 					</div> */}
 				</div>
 				<div className='col-md-6 col-12'>
-					<Title subtitle>25 év történelem</Title>
+					<Title subtitle>{info1Subtitle}</Title>
 					<Text>
 						<StructuredText data={infoText2}/>
 					</Text>

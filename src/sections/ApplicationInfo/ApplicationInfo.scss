@@ -1,0 +1,12 @@
+@import '../../theme.scss';
+
+#palyazati-folyamat {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	.title {
+		color: $primary;
+	}
+	p {
+		color: $primary;
+	}
+}

@@ -10,7 +10,7 @@ import { GraphQLClient, ClientContext } from 'graphql-hooks'
 export const AppContext = React.createContext<undefined | { apiKey: string }>(undefined)
 
 //const apiKey = "1a6a606f0a56bde210db59c9fbf601"
-const apiKey = "c857b0fa0e3cf583f1d8872ba86d9d"
+const apiKey = "7c7cb63b2a47fef9d2c7a1e462f78f"
 
 const client = new GraphQLClient({
     url: "https://graphql.datocms.com/",
@@ -28,7 +28,6 @@ function App() {
                         value={{apiKey}}
                     >
                         <Routes>
-                            <Route path="/szabaduloszoba" element={<EscapeRoomBookingPage/>}/>
                             <Route index element={<LandingPage/>}/>
                         </Routes>
                     </AppContext.Provider>

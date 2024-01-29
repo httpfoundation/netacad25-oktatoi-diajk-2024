@@ -12,11 +12,11 @@ const HamburgerMenu = (props) => {
 
 
 	const items = [
-		{ name: 'Információk', href: '/#' },
-		{ name: 'Előadóink', href: '/#eloadok' },
-		{ name: 'Program', href: '/#program' },
-		{ name: 'Helyszín', href: '/#helyszin' },
-		{ name: 'Támogatók', href: '/#tamogatok' },
+		{ name: 'Információk', href: '/#informaciok' },
+		{ name: 'Pályázati folyamat', href: '/#palyazati-folyamat' },
+		{ name: 'NetAcad Oktatásért díjak', href: '/#netacad-oktatasert-dijak' },
+		{ name: '2023-as díjazottak', href: '/#dijazottak' },
+		{ name: 'Kapcsolat', href: '/#kapcsolat' },
 	]
 
 	return (
@@ -31,7 +31,7 @@ const HamburgerMenu = (props) => {
 			<div className='hamburger-menu-items'>
 				{ items.map((item, key) => <a key={key} href={item.href} onClick={props.onClose}>{item.name}</a>)}
 			</div>
-			<Button href="#regisztracio" onClick={props.onClose}><Ticket />Regisztráció</Button>
+			<Button href="#jeloles" onClick={props.onClose}><Ticket />Jelölés</Button>
 		</div>
 		</>
 	)
@@ -51,7 +51,7 @@ const Header = () => {
 				{/* <img src={BrandImgSmall} alt="HTTP Alapítvány" className="brand-image brand-image-small" /> */}
 				<img src={BrandImg} alt="HTTP Alapítvány" className="brand-image" />
 				<h1></h1> 
-				<Button href="#regisztracio"><Ticket />Regisztráció</Button>
+				<Button href="#jeloles"><Ticket />Jelölés</Button>
 				<div className="hamburger-toggle" onClick={() => setMenuOpen(true)}>
 					<div className="bar"></div>
 					<div className="bar"></div>

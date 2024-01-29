@@ -2,7 +2,8 @@ import { useQuerySubscription } from "react-datocms";
 import { SiteClient } from "datocms-client"
 import { useQuery as useDatoQuery } from "graphql-hooks";
 
-export const token = "c857b0fa0e3cf583f1d8872ba86d9d"
+export const token = "7c7cb63b2a47fef9d2c7a1e462f78f"
+
 
 export const useStaticElement = (staticTextField, isStructuredText = true) => {
     const valueProperty = isStructuredText ? "{value }" : "";

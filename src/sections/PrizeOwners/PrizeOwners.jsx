@@ -1,7 +1,7 @@
 import Section from "../../components/Section/Section";
 import Title from "../../components/Title/Title";
 import Text from "../../components/Text/Text";
-import "./Presenters.scss";
+import "./PrizeOwners.scss";
 import Bubble from "../../components/Bubble/Bubble";
 import Button from "../../components/Button/Button";
 import { useState } from "react";
@@ -9,7 +9,7 @@ import Arrow from "../../icons/Arrow"
 import { StructuredText  } from "react-datocms"
 import { useStaticElement, useAllElements } from '../../tools/datoCmsTools'
 
-const Presenter = (props) => {
+const PrizeOwner = (props) => {
     return (
 		<div className="presenter-card" style={props.style ? props.style : {}}>
 				<div className="presenter-wrapper">
@@ -34,13 +34,13 @@ const Presenter = (props) => {
     );
 };
 
-const HighlightedPresenters = (props) => {
+const HighlightedPrizeOwners = (props) => {
 	const {presenters} = props 
 	return	(
 		<div className="presenters-grid">
 		{
 			presenters?.map((presenter, index) => (
-				<Presenter
+				<PrizeOwner
 					key={presenter.slug}
 					right={index % 2 === 1}
 					name={presenter.name}
@@ -54,13 +54,13 @@ const HighlightedPresenters = (props) => {
 		</div>)
 }
 
-const AllPresenters = (props) => {
+const AllPrizeOwners = (props) => {
 	const {presenters} = props 
 	return	(
 		<div className="presenters-grid small">
 		{
 			presenters?.filter(presenter => presenter.image).map((presenter, index) => (
-				<Presenter
+				<PrizeOwner
 					key={presenter.slug}
 					right={index % 2 === 1}
 					name={presenter.name}
@@ -75,7 +75,7 @@ const AllPresenters = (props) => {
 		</div>)
 }
 
-const Presenters = (props) => {
+const PrizeOwners = (props) => {
 	const [presenterText] = useStaticElement("speaker") 
 	const [allPresenters] = useAllElements("presenters")
 	const [showAll, setShowAll] = useState(false)
@@ -84,20 +84,20 @@ const Presenters = (props) => {
 
 
     return (
-        <Section id="eloadok" container placeholder static>
+        <Section id="dijazottak" container placeholder static>
 			<Title>
-				Akikkel együtt <span className="text-uppercase">ünnepelhetünk</span>
+				A 2023-as <span className="text-uppercase">díjazottak</span>
 			</Title>
 			<Text subtitle>
 				<StructuredText data={presenterText} />
 			</Text>
             
 			
-			{(allPresenters) && <HighlightedPresenters presenters={highlightedPresenters} />}
+			{(allPresenters) && <HighlightedPrizeOwners presenters={highlightedPresenters} />}
 			{furtherPresenters?.length > 0 && 
 				<>
 					<Button onClick={() => setShowAll(!showAll)}><Arrow rotation={showAll ? 180 : 0} /> További előadóink </Button>
-					{(allPresenters && showAll) && <AllPresenters presenters={furtherPresenters} />}
+					{(allPresenters && showAll) && <AllPrizeOwners presenters={furtherPresenters} />}
 				</>
 			}
 			
@@ -105,4 +105,4 @@ const Presenters = (props) => {
     );
 };
 
-export default Presenters;
+export default PrizeOwners;
