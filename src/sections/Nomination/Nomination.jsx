@@ -194,10 +194,10 @@ const Nomination = (props) => {
 				<label className="form-label" htmlFor="nomination-city-field">Település*</label>
 				<input id="nomination-city-field" className="form-control" value={nominationCity} onChange={e => setNominationCity(e.target.value)} autoComplete="address-level2" required/>
 
-				<label className="form-label mt-3" htmlFor="cisco-academy-teacher-since">{setNominationCiscoAcademyYearLabel}</label>
+				{/*<label className="form-label mt-3" htmlFor="cisco-academy-teacher-since">{setNominationCiscoAcademyYearLabel}</label>
 						<select id="cisco-academy-teacher-since" className="form-select" value={nominationCiscoAcademyYear} onChange={e => setNominationCiscoAcademyYear(e.target.value)} required>
 							{ Array.from({length: 25}).map((_, index) => <option key={index} value={index+1998}>{index+1998}</option>) }
-						</select>
+			</select> */}
 				<label className="form-label mt-3" htmlFor="nomination-justification-field">A jelölés rövid indoklása (maximum 300 karakter)*</label>
 				<textarea id="nomination-justification-field" className="form-control" value={nominationReason} placeholder="Kérjük röviden indokold, hogy mi alapján tartod a jelöltet méltónak a díjra!"onChange={e => setNominationReason(e.target.value)} autoComplete="address-level2" required/>
 
@@ -228,7 +228,7 @@ const Nomination = (props) => {
 					}
 					<span style={{opacity: loading ? 0 : 1}}>Jelölés véglegesítése</span>
 				</Button>
-			</form>
+			</form> -->
 
 		<Modal show={success} onHide={() => {setSuccess(false)}} centered>
 			<Modal.Header>
