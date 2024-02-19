@@ -3,7 +3,7 @@ import negyedgomb from "../../assets/img/negyedgomb.png";
 import felgomb from "../../assets/img/felgomb.png";
 
 const Section = (props) => {
-	return <section id={props.id} className={`section ${props.placeholder && 'section-placeholder'}`} style={{position: props.static ? "static" : "relative"}}>
+	return <section id={props.id} className={`section ${props.placeholder && 'section-placeholder'} ${props.className || ""}`} style={{position: props.static ? "static" : "relative"}}>
 		{props.welcome && (
 			<div class="background">
                 <div class="background-strip zero-strip"></div>

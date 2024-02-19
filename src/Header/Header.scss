@@ -58,6 +58,12 @@ header {
 			display: block;
 		}
 	}
+
+	&.no-buttons {
+		a, .hamburger-toggle {
+			display: none;
+		}
+	}
 	
 
 	@include mobile {

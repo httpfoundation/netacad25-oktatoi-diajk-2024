@@ -37,7 +37,7 @@ const HamburgerMenu = (props) => {
 	)
 }
 
-const Header = () => {
+const Header = (props) => {
 
 	const scrollY = useScrollPosition(30 /*fps*/)
 	const limit = 100
@@ -45,7 +45,7 @@ const Header = () => {
 
 	const [menuOpen, setMenuOpen] = useState(false)
 
-	return <header className={`${scrollY < limit ? 'transparent' : ''}`}>
+	return <header className={`${scrollY < limit ? 'transparent' : ''} ${props.noButtons ? "no-buttons" : ""}`}>
 		<div className="container">
 			<Fade top delay={900}>
 				{/* <img src={BrandImgSmall} alt="HTTP Alapítvány" className="brand-image brand-image-small" /> */}

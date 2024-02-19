@@ -120,8 +120,12 @@ const Nomination = (props) => {
 	}
 
 	return <Section id="jeloles" container placeholder>
-		<Title>Jelölés NetAcad Oktatásért<span className="text-uppercase"> DÍJRA</span></Title>
-			<form className="reg-form" onSubmit={onSubmit}>
+		{/* <Title>Jelölés NetAcad Oktatásért<span className="text-uppercase"> DÍJRA</span></Title> */}
+		<Title subtitle>
+			A jelölési időszak lezárult.<br/>Köszönjük a jelöléseket!
+		</Title>
+
+			{/* <form className="reg-form" onSubmit={onSubmit}>
 				<Title subtitle>Add meg az adataidat!</Title>
 				
 				<label className="form-label" htmlFor="name-field">Név*</label>
@@ -228,7 +232,7 @@ const Nomination = (props) => {
 					}
 					<span style={{opacity: loading ? 0 : 1}}>Jelölés véglegesítése</span>
 				</Button>
-			</form>
+			</form> */}
 
 		<Modal show={success} onHide={() => {setSuccess(false)}} centered>
 			<Modal.Header>
