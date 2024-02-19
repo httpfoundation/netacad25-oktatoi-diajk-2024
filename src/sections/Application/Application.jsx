@@ -23,6 +23,34 @@ const Application = (props) => {
 	
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
+	const [ciscoAcademyName, setCiscoAcademyName] = useState('')
+	const [ciscoAcademyYear, setCiscoAcademyYear] = useState('1998')
+	const [material, setMaterial] = useState('')
+	const [almasiCategory, setAlmasiCategory] = useState(false)
+	const [szakkepzesCategory, setSzakkepzesCategory] = useState(false)
+	const [felsooktatasCategory, setFelsooktatasCategory] = useState(false)
+	const [reason, setReason] = useState('')
+
+	const setCategory = (category, value) => {
+		console.log({category}, {value})
+		switch (category) {
+			case "almasi":
+				setAlmasiCategory(value)
+				break
+			case "szakkepzes":
+				if (value) setFelsooktatasCategory(false)
+				setSzakkepzesCategory(value)
+				break
+			case "felsooktatas":
+				if (value) setSzakkepzesCategory(false)
+				setFelsooktatasCategory(value)
+				break
+			default:
+				break
+		}
+	}
+
 	const [loading, setLoading] = useState(false)
 	const [success, setSuccess] = useState(false)
 	const [successModalOpen, setSuccessModalOpen] = useState(false)
@@ -39,11 +67,18 @@ const Application = (props) => {
 				itemType: 'UfSMQX0jQUmFTSgShbK7dQ',
 				name,
 				email,
+				phone,
+				ciscoAcademyName,
+				ciscoAcademyYear,
+				material,
+				reason,
+				almasiCategory,
+				szakkepzesCategory,
+				felsooktatasCategory
 			})
 			setSuccessModalOpen(true)
 			setSuccess(true)
 			setError(false)
-			setEmail('')
 		} catch (error) {
 			console.log(error)
 			if (error.statusCode === 422) {
@@ -75,13 +110,49 @@ const Application = (props) => {
 				</Title>
 			: <form className="reg-form" onSubmit={onSubmit}>
 				<Title subtitle></Title>
+
+				<label className="form-label" htmlFor="name-field">NetAcad oktatói díj kategória, amiben a rövidített jelölti listába bekerültél:</label>
+				<div className="form-check mb-4 mt-1">
+					<input className="form-check-input" type="checkbox" name="nomination-category" id="nomination-category-almasi" checked={almasiCategory} onChange={e => setCategory("almasi", e.target.checked)} />
+					<label className="form-check-label" htmlFor="nomination-category-almasi">
+						Almási Béla életműdíj
+					</label>
+				</div>
+				<div className="form-check mb-4 mt-4">
+					<input className="form-check-input" type="checkbox" name="nomination-category" id="nomination-category-szakkepzes" checked={szakkepzesCategory} onChange={e => setCategory("szakkepzes", e.target.checked)} />
+					<label className="form-check-label" htmlFor="nomination-category-szakkepzes">
+						NetAcad Oktatásért díj a szakképzésben végzett kiemelkedő munkáért
+					</label>
+				</div>
+				<div className="form-check mb-4 mt-4">
+					<input className="form-check-input" type="checkbox" name="nomination-category" id="nomination-category-felsooktatas" checked={felsooktatasCategory} onChange={e => setCategory("felsooktatas", e.target.checked)} />
+					<label className="form-check-label" htmlFor="nomination-category-felsooktatas">
+						NetAcad Oktatásért díj a felsőoktatásban végzett kiemelkedő munkáért
+					</label>
+				</div>
 				
-				<label className="form-label" htmlFor="name-field">Név*</label>
+				<label className="form-label mt-4" htmlFor="name-field">Név*</label>
 				<input id="name-field" className="form-control" value={name} onChange={e => setName(e.target.value)} autoComplete="name" required/>
 
 				<label className="form-label" htmlFor="email-field">E-mail cím*</label>
 				<input id="email-field" className={`form-control ${error === "email" ? 'is-invalid' : ''}`} value={email} onChange={e => setEmail(e.target.value)} autoComplete="email" required/>
 
+				<label className="form-label" htmlFor="phone-field">Telefonszám</label>
+				<input id="phone-field" className="form-control" value={phone} onChange={e => setPhone(e.target.value)} autoComplete="tel"/>
+
+				<label className="form-label" htmlFor="nomination-workplace-field">Cisco Akadémia intézményének neve*</label>
+				<input id="nomination-workplace-field" className="form-control" value={ciscoAcademyName} onChange={e => setCiscoAcademyName(e.target.value)} autoComplete="organization" required/>
+
+				<label className="form-label mt-1" htmlFor="cisco-academy-teacher-since">Mióta vagy Cisco akadémiai oktató?*</label>
+				<select id="cisco-academy-teacher-since" className="form-select" value={ciscoAcademyYear} onChange={e => setCiscoAcademyYear(e.target.value)} required>
+					{ Array.from({length: 25}).map((_, index) => <option key={index} value={index+1998}>{index+1998}</option>) }
+				</select>
+
+				<label className="form-label mt-3" htmlFor="nomination-material-field">Milyen akadémiai tananyagokat oktattál eddig?*</label>
+				<textarea id="nomination-material-field" className="form-control" value={material} placeholder="" onChange={e => setMaterial(e.target.value)} required/>
+
+				<label className="form-label mt-1" htmlFor="nomination-reason-field">Kérjük maximum 1000 karakternyi terjedelemben foglald össze a Cisco Hálózati Akadémia keretében végzett munkádat, projektjeidet!*</label>
+				<textarea id="nomination-reason-field" className="form-control" value={reason} placeholder="" onChange={e => setReason(e.target.value)} required rows={6}/>
 				
 				<div className="form-check mb-4 mt-4">
 					<input className="form-check-input" type="checkbox" id="toc-field" required />
