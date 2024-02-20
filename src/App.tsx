@@ -6,6 +6,7 @@ import theme from "./theme";
 import {LandingPage} from "./pages/LandingPage";
 import {EscapeRoomBookingPage} from "./pages/EscapeRoomBookingPage";
 import { GraphQLClient, ClientContext } from 'graphql-hooks'
+import { ApplicationPage } from './pages/ApplicationPage';
 
 export const AppContext = React.createContext<undefined | { apiKey: string }>(undefined)
 
@@ -29,6 +30,7 @@ function App() {
                     >
                         <Routes>
                             <Route index element={<LandingPage/>}/>
+                            <Route path={'/palyazat'} element={<ApplicationPage />}/>
                         </Routes>
                     </AppContext.Provider>
                 </Router>
