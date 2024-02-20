@@ -157,7 +157,7 @@ const Application = (props) => {
 				<div className="form-check mb-4 mt-4">
 					<input className="form-check-input" type="checkbox" id="toc-field" required />
 					<label className="form-check-label" htmlFor="toc-field">
-						Elolvastam és elfogadom az <a href="https://www.datocms-assets.com/101437/1684764516-adatkezelesi_tajekoztato_netacad25.pdf" target="_blank" className="link" rel="noreferrer">Adatkezelési Tájékoztatóban</a> foglaltakat.*
+						Elolvastam és elfogadom az <a href="https://www.datocms-assets.com/118978/1708427279-adatkezelesi_tajekoztato_netacad_oktatasert_dijak.pdf" target="_blank" className="link" rel="noreferrer">Adatkezelési Tájékoztatóban</a> foglaltakat.*
 					</label>
 				</div>			
 				<div className="my-4"/>
