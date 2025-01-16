@@ -1,15 +1,15 @@
 {
-  "short_name": "IOK 2023",
-  "name": "Informatikai Oktatási Konferencia 2023",
-  "icons": [
-    {
-      "src": "favicon.png",
-      "sizes": "64x64",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "short_name": "IOK 2024",
+    "name": "Informatikai Oktatási Konferencia 2024",
+    "icons": [
+        {
+            "src": "favicon.png",
+            "sizes": "64x64",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
 }

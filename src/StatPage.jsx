@@ -7,7 +7,7 @@ const StatPage = () => {
 	
 	return (
 		<Container>
-			<h1>IOK 2023 jelentkezési statisztika</h1>
+			<h1>IOK 2024 jelentkezési statisztika</h1>
 			<div>Összes regisztráció: {all?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció online részvételre: {online?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció helyszíni részvételre: {onsite?._allRegistrationsMeta.count}</div>

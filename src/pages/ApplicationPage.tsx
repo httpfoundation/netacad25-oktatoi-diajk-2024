@@ -17,7 +17,7 @@ const ApplicationPageWelcome = () => {
                     <Fade left delay={350}>
                         <img
                             src={WelcomeImageMobile}
-                            alt="IOK 2023"
+                            alt="IOK 2024"
                             className="welcome-image-mobile"
                         />
                     </Fade>

@@ -86,7 +86,7 @@ const PrizeOwners = (props) => {
     return (
         <Section id="dijazottak" container placeholder static>
 			<Title>
-				A 2023-as <span className="text-uppercase">díjazottak</span>
+				A 2024-as <span className="text-uppercase">díjazottak</span>
 			</Title>
 			<Text subtitle>
 				<StructuredText data={presenterText} />
@@ -96,7 +96,7 @@ const PrizeOwners = (props) => {
 			{(allPresenters) && <HighlightedPrizeOwners presenters={highlightedPresenters} />}
 			{furtherPresenters?.length > 0 && 
 				<>
-					<Button onClick={() => setShowAll(!showAll)}><Arrow rotation={showAll ? 180 : 0} /> További előadóink </Button>
+					<Button onClick={() => setShowAll(!showAll)}><Arrow rotation={showAll ? 180 : 0} /> Korábbi díjazottjaink </Button>
 					{(allPresenters && showAll) && <AllPrizeOwners presenters={furtherPresenters} />}
 				</>
 			}

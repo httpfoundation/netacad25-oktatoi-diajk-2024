@@ -121,11 +121,11 @@ const Nomination = (props) => {
 
 	return <Section id="jeloles" container placeholder>
 		{/* <Title>Jelölés NetAcad Oktatásért<span className="text-uppercase"> DÍJRA</span></Title> */}
-		<Title subtitle>
+		{/* <Title subtitle>
 			A jelölési időszak lezárult.<br/>Köszönjük a jelöléseket!
-		</Title>
+		</Title> */}
 
-			{/* <form className="reg-form" onSubmit={onSubmit}>
+			<form className="reg-form" onSubmit={onSubmit}>
 				<Title subtitle>Add meg az adataidat!</Title>
 				
 				<label className="form-label" htmlFor="name-field">Név*</label>
@@ -198,7 +198,7 @@ const Nomination = (props) => {
 				<label className="form-label" htmlFor="nomination-city-field">Település*</label>
 				<input id="nomination-city-field" className="form-control" value={nominationCity} onChange={e => setNominationCity(e.target.value)} autoComplete="address-level2" required/>
 
-				{/*<label className="form-label mt-3" htmlFor="cisco-academy-teacher-since">{setNominationCiscoAcademyYearLabel}</label>
+				<label className="form-label mt-3" htmlFor="cisco-academy-teacher-since">{setNominationCiscoAcademyYearLabel}</label>
 						<select id="cisco-academy-teacher-since" className="form-select" value={nominationCiscoAcademyYear} onChange={e => setNominationCiscoAcademyYear(e.target.value)} required>
 							{ Array.from({length: 25}).map((_, index) => <option key={index} value={index+1998}>{index+1998}</option>) }
 			</select> 
@@ -232,7 +232,7 @@ const Nomination = (props) => {
 					}
 					<span style={{opacity: loading ? 0 : 1}}>Jelölés véglegesítése</span>
 				</Button>
-			</form> */}
+			</form>
 
 		<Modal show={success} onHide={() => {setSuccess(false)}} centered>
 			<Modal.Header>
