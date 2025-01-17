@@ -15,7 +15,7 @@ const HamburgerMenu = (props) => {
 		{ name: 'Információk', href: '/#informaciok' },
 		{ name: 'Pályázati folyamat', href: '/#palyazati-folyamat' },
 		{ name: 'NetAcad Oktatásért díjak', href: '/#netacad-oktatasert-dijak' },
-		{ name: '2024-as díjazottak', href: '/#dijazottak' },
+		{ name: 'Korábbi díjazottak', href: '/#dijazottak' },
 		{ name: 'Kapcsolat', href: '/#kapcsolat' },
 	]
 

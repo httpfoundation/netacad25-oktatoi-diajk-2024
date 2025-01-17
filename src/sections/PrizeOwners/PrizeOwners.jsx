@@ -96,7 +96,7 @@ const PrizeOwners = (props) => {
 			{(allPresenters) && <HighlightedPrizeOwners presenters={highlightedPresenters} />}
 			{furtherPresenters?.length > 0 && 
 				<>
-					<Button onClick={() => setShowAll(!showAll)}><Arrow rotation={showAll ? 180 : 0} /> Korábbi díjazottjaink </Button>
+					<Button onClick={() => setShowAll(!showAll)}><Arrow rotation={showAll ? 180 : 0} /> Korábbi díjazottak </Button>
 					{(allPresenters && showAll) && <AllPrizeOwners presenters={furtherPresenters} />}
 				</>
 			}

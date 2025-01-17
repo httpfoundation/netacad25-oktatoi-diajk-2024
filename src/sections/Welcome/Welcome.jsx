@@ -98,7 +98,7 @@ const Welcome = () => {
                         <>
                             <div className="title title1"></div>
                             <div className="title title2">NetAcad Oktatásért díjak</div>
-                            <div className="title title3">2024</div>
+                            <div className="title title3">2025</div>
                         </>
                     </Fade>
 {/*                     <Fade top delay={440}>
