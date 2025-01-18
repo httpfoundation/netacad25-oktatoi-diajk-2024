@@ -17,7 +17,7 @@ const ApplicationPageWelcome = () => {
                     <Fade left delay={350}>
                         <img
                             src={WelcomeImageMobile}
-                            alt="IOK 2024"
+                            alt="IOK 2025"
                             className="welcome-image-mobile"
                         />
                     </Fade>
@@ -25,7 +25,7 @@ const ApplicationPageWelcome = () => {
                         <>
                             <div className="title title1"></div>
                             <div className="title title2">NetAcad Oktatásért díjak</div>
-                            <div className="title title3">2024</div>
+                            <div className="title title3">2025</div>
                         </>
                     </Fade>
                 </div>

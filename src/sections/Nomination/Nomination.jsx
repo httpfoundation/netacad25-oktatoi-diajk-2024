@@ -13,10 +13,12 @@ import Modal from 'react-bootstrap/Modal'
 import Alert from "react-bootstrap/Alert"
 import Spinner from "react-bootstrap/Spinner"
 import { useStaticElement } from '../../tools/datoCmsTools'
+import Text from "../../components/Text/Text"
 
 
 
 const Nomination = (props) => {
+	const [nominationParagraph] = useStaticElement("nominationParagraph")
 
 	const context = useContext(AppContext)
 	const [nominationSuccessText] = useStaticElement("nominationSuccess") 
@@ -126,6 +128,9 @@ const Nomination = (props) => {
 		</Title> */}
 
 			<form className="reg-form" onSubmit={onSubmit}>
+				<Title>Jelölés NetAcad Oktatásért díjra</Title>
+				<Text center><StructuredText data={nominationParagraph} /></Text>
+
 				<Title subtitle>Add meg az adataidat!</Title>
 				
 				<label className="form-label" htmlFor="name-field">Név*</label>

@@ -16,4 +16,8 @@
 	&.center {
 		text-align: center;
 	}
+	a {
+		color: $bg-secondary;
+		text-decoration: underline;
+	}
 }

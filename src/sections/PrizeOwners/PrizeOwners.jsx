@@ -86,7 +86,7 @@ const PrizeOwners = (props) => {
     return (
         <Section id="dijazottak" container placeholder static>
 			<Title>
-				A 2024-as <span className="text-uppercase">díjazottak</span>
+				A 2024-es <span className="text-uppercase">díjazottak</span>
 			</Title>
 			<Text subtitle>
 				<StructuredText data={presenterText} />
