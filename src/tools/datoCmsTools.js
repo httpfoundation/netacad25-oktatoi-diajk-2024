@@ -56,6 +56,7 @@ export const useAllElements = (model) => {
                     highlighted
                     title
                     company
+                    yearofaward
                     image {
                         url
                     }
