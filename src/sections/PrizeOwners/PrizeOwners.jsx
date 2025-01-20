@@ -1,9 +1,7 @@
 import { Fragment, useState } from 'react';
 import Bubble from '../../components/Bubble/Bubble';
-import Button from '../../components/Button/Button';
 import Section from '../../components/Section/Section';
 import Title from '../../components/Title/Title';
-import Arrow from '../../icons/Arrow';
 import { useAllElements } from '../../tools/datoCmsTools';
 import { getHungarianYearPostfix } from '../../tools/utils';
 import './PrizeOwners.scss';
@@ -109,23 +107,14 @@ const PrizeOwners = () => {
 
             {groupedAwardees.length > 0 && (
                 <>
-                    <Button onClick={() => setShowAll(!showAll)}>
-                        <Arrow rotation={showAll ? 180 : 0} /> Korábbi
-                        díjazottak{' '}
-                    </Button>
-                    {showAll && (
-                        <>
-                            {groupedAwardees.map(([year, presenters]) => (
-                                <Fragment key={year}>
-                                    <Title subtitle>
-                                        A {getHungarianYearPostfix(year)}{' '}
-                                        DÍJAZOTTAK
-                                    </Title>
-                                    <AllPrizeOwners presenters={presenters} />
-                                </Fragment>
-                            ))}
-                        </>
-                    )}
+                    {groupedAwardees.map(([year, presenters]) => (
+                        <Fragment key={year}>
+                            <Title style={{ marginTop: '5rem' }}>
+                                A {getHungarianYearPostfix(year)} DÍJAZOTTAK
+                            </Title>
+                            <HighlightedPrizeOwners presenters={presenters} />
+                        </Fragment>
+                    ))}
                 </>
             )}
         </Section>

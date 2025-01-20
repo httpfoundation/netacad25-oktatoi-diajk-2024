@@ -16,6 +16,8 @@ import { useStaticElement } from '../../tools/datoCmsTools';
 
 const Nomination = (props) => {
     const [nominationParagraph] = useStaticElement('nominationParagraph');
+    const [privacyPolicyLink] = useStaticElement('privacyPolicyLink', false);
+    console.log(privacyPolicyLink);
 
     const context = useContext(AppContext);
     const [nominationSuccessText] = useStaticElement('nominationSuccess');
@@ -469,7 +471,7 @@ const Nomination = (props) => {
                             >
                                 Elolvastam és elfogadom az{' '}
                                 <a
-                                    href="https://www.datocms-assets.com/101437/1684764516-adatkezelesi_tajekoztato_netacad25.pdf"
+                                    href={privacyPolicyLink}
                                     target="_blank"
                                     className="link"
                                     rel="noreferrer"
