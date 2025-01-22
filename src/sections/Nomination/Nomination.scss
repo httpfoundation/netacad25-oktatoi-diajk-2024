@@ -79,3 +79,13 @@
 	}
 
 }
+
+hr {
+	border: 0;
+	height: 1px;
+	width: 100%;
+	flex-shrink: 0;
+	background-color: $dark;
+	opacity: .25;
+	margin-top: .5rem;
+}

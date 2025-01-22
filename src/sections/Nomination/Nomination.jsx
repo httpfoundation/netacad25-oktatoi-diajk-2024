@@ -43,7 +43,7 @@ const Nomination = (props) => {
     const [error, setError] = useState(false);
     const [nominationInstructor, setNominationInstructor] = useState(true);
     const [almasiCategory, setAlmasiCategory] = useState(false);
-    const [szakkepzesCategory, setSzakkepzesCategory] = useState(true);
+    const [szakkepzesCategory, setSzakkepzesCategory] = useState(false);
     const [felsooktatasCategory, setFelsooktatasCategory] = useState(false);
     const [nominationReason, setNominationReason] = useState('');
 
@@ -209,42 +209,50 @@ const Nomination = (props) => {
                         <Title subtitle>
                             Add meg a jelölésre vonatkozó adatokat!
                         </Title>
-                        <div className="form-check mb-4 mt-4">
-                            <input
-                                className="form-check-input"
-                                type="radio"
-                                name="nomination-type"
-                                id="nomination-type-instructor"
-                                value="instructor"
-                                checked={nominationInstructor}
-                                onChange={(e) => setNominationInstructor(true)}
-                                required
-                            />
-                            <label
-                                className="form-check-label"
-                                htmlFor="nomination-type-instructor"
-                            >
-                                Jelölés oktatói kategóriában
-                            </label>
+                        <div className="d-flex justify-content-between">
+                            <div className="form-check mt-4">
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="nomination-type"
+                                    id="nomination-type-instructor"
+                                    value="instructor"
+                                    checked={nominationInstructor}
+                                    onChange={(e) =>
+                                        setNominationInstructor(true)
+                                    }
+                                    required
+                                />
+                                <label
+                                    className="form-check-label"
+                                    htmlFor="nomination-type-instructor"
+                                >
+                                    Jelölés oktatói kategóriában
+                                </label>
+                            </div>
+                            <div className="form-check mt-4">
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="nomination-type"
+                                    id="nomination-type-organization"
+                                    value="organization"
+                                    checked={!nominationInstructor}
+                                    onChange={(e) =>
+                                        setNominationInstructor(false)
+                                    }
+                                    required
+                                />
+                                <label
+                                    className="form-check-label"
+                                    htmlFor="nomination-type-organization"
+                                >
+                                    Jelölés intézményi kategóriában
+                                </label>
+                            </div>
                         </div>
-                        <div className="form-check mb-4 mt-4">
-                            <input
-                                className="form-check-input"
-                                type="radio"
-                                name="nomination-type"
-                                id="nomination-type-organization"
-                                value="organization"
-                                checked={!nominationInstructor}
-                                onChange={(e) => setNominationInstructor(false)}
-                                required
-                            />
-                            <label
-                                className="form-check-label"
-                                htmlFor="nomination-type-organization"
-                            >
-                                Jelölés intézményi kategóriában
-                            </label>
-                        </div>
+
+                        <hr />
 
                         {nominationInstructor ? (
                             <>
