@@ -48,6 +48,10 @@
 			box-shadow: 0 0 0 0.1rem $primary;
 			border-color: $primary;
 		}
+		&.is-invalid:focus {
+			box-shadow: 0 0 0 2px #dc3545 !important;
+			border-color: #dc3545 !important;
+		}
 	}
 	input, select, select option {
 		font-family: sans-serif;

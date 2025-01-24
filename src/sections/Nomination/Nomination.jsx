@@ -13,6 +13,7 @@ import { StructuredText } from 'react-datocms';
 import { AppContext } from '../../App';
 import Text from '../../components/Text/Text';
 import { useStaticElement } from '../../tools/datoCmsTools';
+import { flushSync } from 'react-dom';
 
 const Nomination = (props) => {
     const [nominationParagraph] = useStaticElement('nominationParagraph');
@@ -117,6 +118,7 @@ const Nomination = (props) => {
                     else setError('other');
                 } else if (error.message.includes('INVALID_FIELD')) {
                     if (error.message.includes('vip_code')) setError('vip');
+                    else if(error.message.includes('email')) setError('email');
                     else setError('other');
                 } else {
                     setError('other');
@@ -124,6 +126,9 @@ const Nomination = (props) => {
             } else {
                 setError('other');
             }
+            flushSync(() => {
+                document.querySelector('.is-invalid')?.focus();
+            })
         } finally {
             setLoading(false);
         }
@@ -378,7 +383,7 @@ const Nomination = (props) => {
                                     className="form-label"
                                     htmlFor="nomination-workplace-field"
                                 >
-                                    A jelölt Cisco Akadémia intézményének neve
+                                    A jelölt Cisco Akadémia intézményének neve*
                                 </label>
                                 <input
                                     id="nomination-workplace-field"
