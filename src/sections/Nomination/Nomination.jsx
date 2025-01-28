@@ -92,7 +92,10 @@ const Nomination = (props) => {
                 nominationPhone,
                 nominationCity,
                 nominationCiscoAcademyYear,
-                nominationReason
+                nominationReason,
+                almasiCategory,
+                szakkepzesCategory,
+                felsooktatasCategory
             });
             setSuccess(true);
             setError(false);
@@ -108,6 +111,9 @@ const Nomination = (props) => {
             setNominationCity('');
             setNominationCiscoAcademyYear(1998);
             setNominationReason('');
+            setAlmasiCategory(false);
+            setSzakkepzesCategory(false);
+            setFelsooktatasCategory(false);
         } catch (error) {
             console.log(error);
             if (error.statusCode === 422) {
