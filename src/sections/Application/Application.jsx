@@ -114,7 +114,7 @@ const Application = (props) => {
                     <Title subtitle></Title>
 
                     <label className="form-label" htmlFor="name-field">
-                        NetAcad oktatói díj kategória, amiben a rövidített
+                        NetAcad Oktatásért díj kategória, amiben a rövidített
                         jelölti listába bekerültél:
                     </label>
                     <div className="form-check mb-4 mt-1">
