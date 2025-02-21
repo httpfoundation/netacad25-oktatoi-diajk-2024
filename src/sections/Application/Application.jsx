@@ -26,6 +26,7 @@ const Application = (props) => {
     const [almasiCategory, setAlmasiCategory] = useState(false);
     const [szakkepzesCategory, setSzakkepzesCategory] = useState(false);
     const [felsooktatasCategory, setFelsooktatasCategory] = useState(false);
+    const [intezmenyCategory, setIntezmenyCategory] = useState(false);
     const [reason, setReason] = useState('');
 
     const setCategory = (category, value) => {
@@ -41,6 +42,10 @@ const Application = (props) => {
             case 'felsooktatas':
                 if (value) setSzakkepzesCategory(false);
                 setFelsooktatasCategory(value);
+                break;
+            case 'intezmeny':
+                if (value) setIntezmenyCategory(false);
+                setIntezmenyCategory(value);
                 break;
             default:
                 break;
@@ -70,7 +75,8 @@ const Application = (props) => {
                 reason,
                 almasiCategory,
                 szakkepzesCategory,
-                felsooktatasCategory
+                felsooktatasCategory,
+                intezmenyCategory
             });
             setSuccessModalOpen(true);
             setSuccess(true);
@@ -167,6 +173,24 @@ const Application = (props) => {
                             kiemelkedő munkáért
                         </label>
                     </div>
+                    <div className="form-check mb-4 mt-4">
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name="nomination-category"
+                            id="nomination-category-intezmeny"
+                            checked={intezmenyCategory}
+                            onChange={(e) =>
+                                setCategory('intezmeny', e.target.checked)
+                            }
+                        />
+                        <label
+                            className="form-check-label"
+                            htmlFor="nomination-category-intezmeny"
+                        >
+                            Intézményi kategória
+                        </label>
+                    </div>
 
                     <label className="form-label mt-4" htmlFor="name-field">
                         Név*
@@ -195,7 +219,7 @@ const Application = (props) => {
                     />
 
                     <label className="form-label" htmlFor="phone-field">
-                        Telefonszám
+                        Telefonszám*
                     </label>
                     <input
                         id="phone-field"
@@ -203,6 +227,7 @@ const Application = (props) => {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         autoComplete="tel"
+                        required
                     />
 
                     <label
@@ -224,7 +249,9 @@ const Application = (props) => {
                         className="form-label mt-1"
                         htmlFor="cisco-academy-teacher-since"
                     >
-                        Mióta vagy Cisco akadémiai oktató?*
+                        {intezmenyCategory
+                            ? 'Intézményed mióta Cisco akadémia?*'
+                            : 'Mióta vagy Cisco akadémiai oktató?*'}
                     </label>
                     <select
                         id="cisco-academy-teacher-since"
@@ -244,7 +271,9 @@ const Application = (props) => {
                         className="form-label mt-3"
                         htmlFor="nomination-material-field"
                     >
-                        Milyen akadémiai tananyagokat oktattál eddig?*
+                        {intezmenyCategory
+                            ? 'Intézményedben milyen akadémiai tananyagokat oktattok?*'
+                            : 'Milyen akadémiai tananyagokat oktattál eddig?*'}
                     </label>
                     <textarea
                         id="nomination-material-field"
@@ -259,9 +288,9 @@ const Application = (props) => {
                         className="form-label mt-1"
                         htmlFor="nomination-reason-field"
                     >
-                        Kérjük maximum 1000 karakternyi terjedelemben foglald
-                        össze a Cisco Hálózati Akadémia keretében végzett
-                        munkádat, projektjeidet!*
+                        {intezmenyCategory
+                            ? 'Kérjük maximum 1000 karakternyi terjedelemben foglald össze intézményed Cisco Hálózati Akadémia keretében végzett munkáját, projektjeit!*'
+                            : 'Kérjük maximum 1000 karakternyi terjedelemben foglald össze a Cisco Hálózati Akadémia keretében végzett munkádat, projektjeidet!*'}
                     </label>
                     <textarea
                         id="nomination-reason-field"
