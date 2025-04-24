@@ -49,6 +49,10 @@ const calculateCountdown = (target) => {
 
 const Welcome = () => {
     const target = useMemo(() => new Date("2023-06-08T09:00:00"), []);
+    const [nominationFormEnabled] = useStaticElement(
+            'nominationFormEnabled',
+            false
+    );
     const [countdown, setCountdown] = useState({});
 	const [welcomeText] = useStaticElement("welcome")
     useEffect(() => {
@@ -111,10 +115,12 @@ const Welcome = () => {
                             </Button>
                         </Fade> */}
                         <Fade top delay={530}>
-                            <Button href="#jeloles" bold>
+                            <>
+                            {nominationFormEnabled && <Button href="#jeloles" bold>
                                 <Ticket />
                                 Jelölés
-                            </Button>
+                            </Button>}
+                            </>
                         </Fade>
                     </div>
                 </div>

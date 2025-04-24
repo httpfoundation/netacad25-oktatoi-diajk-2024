@@ -6,9 +6,14 @@ import Ticket from '../icons/Ticket'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useState } from 'react'
 import Fade from 'react-reveal/Fade'
+import { useStaticElement } from '../tools/datoCmsTools'
 
 
 const HamburgerMenu = (props) => {
+		const [nominationFormEnabled] = useStaticElement(
+				'nominationFormEnabled',
+				false
+		);
 
 
 	const items = [
@@ -31,13 +36,17 @@ const HamburgerMenu = (props) => {
 			<div className='hamburger-menu-items'>
 				{ items.map((item, key) => <a key={key} href={item.href} onClick={props.onClose}>{item.name}</a>)}
 			</div>
-			<Button href="#jeloles" onClick={props.onClose}><Ticket />Jelölés</Button>
+			{nominationFormEnabled && <Button href="#jeloles" onClick={props.onClose}><Ticket />Jelölés</Button>}
 		</div>
 		</>
 	)
 }
 
 const Header = (props) => {
+	const [nominationFormEnabled] = useStaticElement(
+			'nominationFormEnabled',
+			false
+	);
 
 	const scrollY = useScrollPosition(30 /*fps*/)
 	const limit = 100
@@ -51,7 +60,7 @@ const Header = (props) => {
 				{/* <img src={BrandImgSmall} alt="HTTP Alapítvány" className="brand-image brand-image-small" /> */}
 				<img src={BrandImg} alt="HTTP Alapítvány" className="brand-image" />
 				<h1></h1> 
-				<Button href="#jeloles"><Ticket />Jelölés</Button>
+				{nominationFormEnabled ?<Button href="#jeloles"><Ticket />Jelölés</Button> : <div></div>}
 				<div className="hamburger-toggle" onClick={() => setMenuOpen(true)}>
 					<div className="bar"></div>
 					<div className="bar"></div>
