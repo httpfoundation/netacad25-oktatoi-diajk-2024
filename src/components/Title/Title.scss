@@ -1,35 +1,36 @@
 @import '../../theme.scss';
 
 h2.title {
-	font-weight: 400;
-	font-size: 2.5rem;
-	line-height: 1.5;
-	text-align: center;
-	.highlight {
-		color: $secondary;
-	}
-	@include mobile {
-		font-size: 1.8rem;
-	}
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    text-align: center;
+    .highlight {
+        color: $netacad-green;
+        font-weight: 700;
+    }
+    @include mobile {
+        font-size: 1.8rem;
+    }
 }
 
 h2.titleLeftAlign {
-	text-align: center;
+    text-align: center;
 }
 
 h3.subtitle {
-	font-weight: 700;
-	font-size: 1.6rem;
-	line-height: 1.5;
-	margin-top: 50px;
-	margin-bottom: 20px;
-	@include mobile {
-		font-size: 1.3rem;
-		margin-top: 0;
-		text-align: center;
-	}
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    @include mobile {
+        font-size: 1.3rem;
+        margin-top: 0;
+        text-align: center;
+    }
 }
 
 h2.highlight {
-	color: $secondary;
+    color: $netacad-green;
 }

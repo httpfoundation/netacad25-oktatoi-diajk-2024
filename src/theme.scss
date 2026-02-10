@@ -2,15 +2,17 @@ $primary: #0d274d;
 $secondary: #fbab2c;
 $light: #fff;
 $dark: #0d274d;
-$grey: #4F4F4F;
-$lightgrey: #BDBDBD;
+$grey: #4f4f4f;
+$lightgrey: #bdbdbd;
 $bg-light: #fff;
 $bg-primary: #0d274d;
 $bg-secondary: #a8e8f8; //00bceb; //#def6fc;
-$h1-color: #47BED0;
-$iok-lightblue: #47BED0;
+$h1-color: #47bed0;
+$iok-lightblue: #47bed0;
 $iok-light: #d6f4f5;
 $iok-lightgrey: #fde9d1;
+$netacad-green: rgb(106, 191, 75);
+$netacad-green-light: #8dce76;
 
 /* 
 
@@ -41,13 +43,13 @@ $bg-primary: #D6F4F5;
 $mobile-breakpoint: 762px;
 
 @mixin mobile {
-	@media screen and (max-width: #{$mobile-breakpoint}) {
-		@content;
-	}
+    @media screen and (max-width: #{$mobile-breakpoint}) {
+        @content;
+    }
 }
 
 @mixin desktop {
-	@media screen and (min-width: #{$mobile-breakpoint}) {
-		@content;
-	}
+    @media screen and (min-width: #{$mobile-breakpoint}) {
+        @content;
+    }
 }

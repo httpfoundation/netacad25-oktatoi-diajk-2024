@@ -1,27 +1,27 @@
-import Bubble from "../../components/Bubble/Bubble";
-import React, { useEffect, useMemo, useState } from "react";
-import Calendar from "../../icons/Calendar";
-import Ticket from "../../icons/Ticket";
-import Location from "../../icons/Location";
-import Button from "../../components/Button/Button";
-import Section from "../../components/Section/Section";
-import WelcomeImage from "../../assets/img/welcome-img.png";
-import WelcomeImageMobile from "../../assets/img/welcome-img.png";
-import "./Welcome.scss";
-import Fade from "react-reveal/Fade"
-import { StructuredText  } from "react-datocms"
-import { useStaticElement } from '../../tools/datoCmsTools'
+import Bubble from '../../components/Bubble/Bubble';
+import React, { useEffect, useMemo, useState } from 'react';
+import Calendar from '../../icons/Calendar';
+import Ticket from '../../icons/Ticket';
+import Location from '../../icons/Location';
+import Button from '../../components/Button/Button';
+import Section from '../../components/Section/Section';
+import WelcomeImage from '../../assets/img/welcome-img.png';
+import WelcomeImageMobile from '../../assets/img/welcome-img.png';
+import './Welcome.scss';
+import Fade from 'react-reveal/Fade';
+import { StructuredText } from 'react-datocms';
+import { useStaticElement } from '../../tools/datoCmsTools';
 
 const Overview = (props) => {
     return (
         <div className="overview">
             <OverviewItem>
                 <Calendar />
-                {props.date.toLocaleDateString("hu-HU", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                    weekday: "long",
+                {props.date.toLocaleDateString('hu-HU', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    weekday: 'long'
                 })}
             </OverviewItem>
             <OverviewItem>
@@ -48,13 +48,13 @@ const calculateCountdown = (target) => {
 };
 
 const Welcome = () => {
-    const target = useMemo(() => new Date("2023-06-08T09:00:00"), []);
+    const target = useMemo(() => new Date('2023-06-08T09:00:00'), []);
     const [nominationFormEnabled] = useStaticElement(
-            'nominationFormEnabled',
-            false
+        'nominationFormEnabled',
+        false
     );
     const [countdown, setCountdown] = useState({});
-	const [welcomeText] = useStaticElement("welcome")
+    const [welcomeText] = useStaticElement('welcome');
     useEffect(() => {
         setCountdown(calculateCountdown(target));
         const interval = window.setInterval(() => {
@@ -66,9 +66,9 @@ const Welcome = () => {
 
     return (
         <Section container welcome placeholder id="welcome">
-            <div className="row" style={{position: "relative"}}>
+            <div className="row" style={{ position: 'relative' }}>
                 <div className="col-md-7 col-12">
-{/*                     <div className="bubbles">
+                    {/*                     <div className="bubbles">
                         <Fade left delay={200}>
                             <Bubble
                                 title={countdown.days}
@@ -87,7 +87,7 @@ const Welcome = () => {
                             />
                         </Fade>
                     </div>
- */}                    
+ */}
                     {/* <Fade top delay={300}>
                         <Overview date={target} />
                     </Fade> */}
@@ -101,25 +101,29 @@ const Welcome = () => {
                     <Fade top delay={400}>
                         <>
                             <div className="title title1"></div>
-                            <div className="title title2">NetAcad Oktatásért díjak</div>
-                            <div className="title title3">2025</div>
+                            <div className="title title2">
+                                NetAcad Oktatásért díjak
+                            </div>
+                            <div className="title title3">2026</div>
                         </>
                     </Fade>
-{/*                     <Fade top delay={440}>
+                    {/*                     <Fade top delay={440}>
                         <StructuredText data={welcomeText} />
                     </Fade> */}
                     <div className="buttons">
-						{/*<Fade top delay={480}>
+                        {/*<Fade top delay={480}>
                             <Button secondary bold>
                                 További információ
                             </Button>
                         </Fade> */}
                         <Fade top delay={530}>
                             <>
-                            {nominationFormEnabled && <Button href="#jeloles" bold>
-                                <Ticket />
-                                Jelölés
-                            </Button>}
+                                {nominationFormEnabled && (
+                                    <Button href="#jeloles" bold>
+                                        <Ticket />
+                                        Jelölés
+                                    </Button>
+                                )}
                             </>
                         </Fade>
                     </div>
