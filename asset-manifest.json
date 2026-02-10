@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.18885d42.css",
+    "main.css": "/static/css/main.46cbaac6.css",
     "main.js": "/static/js/main.7254bf84.js",
     "static/media/CiscoSansTTLight.ttf": "/static/media/CiscoSansTTLight.ce4dcedf35112552301d.ttf",
     "static/media/CiscoSansTTBold.ttf": "/static/media/CiscoSansTTBold.10ade40df398d7a1dc9c.ttf",
@@ -15,11 +15,11 @@
     "static/media/Telekom.png": "/static/media/Telekom.d9c3e28cb74a9266220f.png",
     "static/media/pannon-mik2.png": "/static/media/pannon-mik2.3544fe72a4bcfee7df2e.png",
     "index.html": "/index.html",
-    "main.18885d42.css.map": "/static/css/main.18885d42.css.map",
+    "main.46cbaac6.css.map": "/static/css/main.46cbaac6.css.map",
     "main.7254bf84.js.map": "/static/js/main.7254bf84.js.map"
   },
   "entrypoints": [
-    "static/css/main.18885d42.css",
+    "static/css/main.46cbaac6.css",
     "static/js/main.7254bf84.js"
   ]
 }
